@@ -4,8 +4,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Process.css';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const steps = [
   {
     num: '01',
@@ -81,32 +79,30 @@ export default function Process() {
         '.process-section .section-subtitle',
       ],
       {
-        y: 40,
+        y: 24,
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.12,
+        duration: 0.6,
+        stagger: 0.1,
         ease: 'power3.out',
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 85%', once: true },
       }
     );
 
-    // ── Steps ─────────────────────────────────────────────────────
     gsap.from('.step-row', {
-      x: -50,
+      x: -28,
       opacity: 0,
-      duration: 0.7,
-      stagger: 0.14,
+      duration: 0.5,
+      stagger: 0.1,
       ease: 'power3.out',
-      scrollTrigger: { trigger: '.steps-list', start: 'top 78%' },
+      scrollTrigger: { trigger: '.steps-list', start: 'top 88%', once: true },
     });
 
-    // ── Stack block reveal ─────────────────────────────────────────
     gsap.from('.stack-block', {
-      y: 30,
+      y: 20,
       opacity: 0,
-      duration: 0.7,
+      duration: 0.5,
       ease: 'power3.out',
-      scrollTrigger: { trigger: '.stack-block', start: 'top 88%' },
+      scrollTrigger: { trigger: '.stack-block', start: 'top 90%', once: true },
     });
   }, { scope: sectionRef });
 

@@ -4,8 +4,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Industries.css';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const industries = [
   {
     id: '01',
@@ -86,17 +84,17 @@ export default function Industries() {
   /* ── Entry animations ── */
   useGSAP(() => {
     const tl = gsap.timeline({
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 72%' },
+      scrollTrigger: { trigger: sectionRef.current, start: 'top 85%', once: true },
     });
-    tl.from('.isc-eyebrow', { y: 18, opacity: 0, duration: 0.55, ease: 'power3.out' })
-      .from('.isc-title',   { y: 24, opacity: 0, duration: 0.60, ease: 'power3.out' }, '-=0.35')
-      .from('.isc-sub',     { y: 16, opacity: 0, duration: 0.50, ease: 'power3.out' }, '-=0.30')
-      .from('.isc-tab',     { x: -28, opacity: 0, duration: 0.50, stagger: 0.07, ease: 'power3.out' }, '-=0.25')
-      .from('.isc-showcase',{ x: 32,  opacity: 0, duration: 0.65, ease: 'power3.out' }, '-=0.55');
+    tl.from('.isc-eyebrow', { y: 14, opacity: 0, duration: 0.45, ease: 'power3.out' })
+      .from('.isc-title',   { y: 18, opacity: 0, duration: 0.50, ease: 'power3.out' }, '-=0.3')
+      .from('.isc-sub',     { y: 12, opacity: 0, duration: 0.40, ease: 'power3.out' }, '-=0.25')
+      .from('.isc-tab',     { x: -18, opacity: 0, duration: 0.40, stagger: 0.05, ease: 'power3.out' }, '-=0.2')
+      .from('.isc-showcase',{ x: 20,  opacity: 0, duration: 0.50, ease: 'power3.out' }, '-=0.45');
 
     gsap.from('.isc-value', {
-      y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out',
-      scrollTrigger: { trigger: '.isc-values', start: 'top 85%' },
+      y: 16, opacity: 0, duration: 0.4, stagger: 0.06, ease: 'power2.out',
+      scrollTrigger: { trigger: '.isc-values', start: 'top 88%', once: true },
     });
   }, { scope: sectionRef });
 

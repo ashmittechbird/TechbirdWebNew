@@ -217,6 +217,19 @@ body::before {
   }
 }
 
+/* Performance: pre-composite layers for scroll-animated elements */
+.service-card,
+.product-card,
+.step-row,
+.glass-panel,
+.isc-tab,
+.isc-showcase,
+.isc-value,
+.plat-stat,
+.review-card {
+  will-change: transform, opacity;
+}
+
 /* Animations */
 @keyframes float {
 

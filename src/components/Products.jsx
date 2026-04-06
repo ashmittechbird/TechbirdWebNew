@@ -53,27 +53,28 @@ export default function Products() {
   useGSAP(() => {
     // Header
     gsap.from(['.products-section .section-tag', '.products-section .section-title', '.products-section .section-subtitle'], {
-      y: 40,
+      y: 24,
       opacity: 0,
-      duration: 0.8,
-      stagger: 0.12,
+      duration: 0.6,
+      stagger: 0.1,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: 'top 75%',
+        start: 'top 85%',
+        once: true,
       },
     });
 
-    // Product cards — fast wave stagger (many cards)
     gsap.from('.product-card', {
-      y: 40,
+      y: 24,
       opacity: 0,
-      duration: 0.55,
-      stagger: 0.055,
+      duration: 0.45,
+      stagger: 0.04,
       ease: 'power2.out',
       scrollTrigger: {
         trigger: '.products-grid',
-        start: 'top 80%',
+        start: 'top 88%',
+        once: true,
       },
     });
   }, { scope: sectionRef });

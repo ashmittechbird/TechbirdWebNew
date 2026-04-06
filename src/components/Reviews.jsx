@@ -190,15 +190,15 @@ export default function Reviews() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(headerRef.current.children, {
-        y: 32, opacity: 0, duration: 0.85, stagger: 0.11,
+        y: 20, opacity: 0, duration: 0.6, stagger: 0.09,
         ease: 'power3.out',
-        scrollTrigger: { trigger: headerRef.current, start: 'top 82%' },
+        scrollTrigger: { trigger: headerRef.current, start: 'top 88%', once: true },
       });
 
       gsap.from(statsRef.current.querySelectorAll('.plat-stat'), {
-        y: 22, opacity: 0, scale: 0.95, duration: 0.65, stagger: 0.09,
+        y: 16, opacity: 0, scale: 0.97, duration: 0.5, stagger: 0.07,
         ease: 'power2.out',
-        scrollTrigger: { trigger: statsRef.current, start: 'top 84%' },
+        scrollTrigger: { trigger: statsRef.current, start: 'top 90%', once: true },
       });
     }, sectionRef);
 

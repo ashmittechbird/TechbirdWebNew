@@ -4,8 +4,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Services.css';
 
-gsap.registerPlugin(ScrollTrigger);
-
 /* ─── Background SVG Art ─── */
 
 const ErpBg = () => (
@@ -274,26 +272,28 @@ export default function Services() {
       '.services-section .section-title',
       '.services-section .section-subtitle',
     ], {
-      y: 40,
+      y: 24,
       opacity: 0,
-      duration: 0.8,
-      stagger: 0.12,
+      duration: 0.6,
+      stagger: 0.1,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: 'top 75%',
+        start: 'top 85%',
+        once: true,
       },
     });
 
     gsap.from('.service-card', {
-      y: 64,
+      y: 32,
       opacity: 0,
-      duration: 0.75,
-      stagger: 0.1,
+      duration: 0.55,
+      stagger: 0.07,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: '.services-grid',
-        start: 'top 78%',
+        start: 'top 88%',
+        once: true,
       },
     });
   }, { scope: sectionRef });
