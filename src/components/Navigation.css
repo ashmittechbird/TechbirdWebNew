@@ -1,0 +1,230 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 55px;
+  width: calc(100% - 55px);
+  z-index: 100;
+  padding: 1.05rem 0;
+  transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, padding 0.35s ease;
+  will-change: transform;
+}
+
+.nav-scrolled {
+  background: rgba(248, 250, 252, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  padding: 1rem 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 64px;
+}
+
+.logo-img {
+  height: 85%;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+}
+
+.desktop-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-sm {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.3px;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 11px; /* 22px icon + 2×11px = 44px touch target */
+  z-index: 102;
+  margin: -11px -11px -11px 0; /* compensate visual spacing */
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--text-primary);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger:hover span {
+  background: var(--accent-2);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(248, 250, 252, 0.97);
+  backdrop-filter: blur(24px);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mobile-nav-link {
+  font-family: 'Lexend Tera', sans-serif;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  font-weight: 300;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.mobile-nav-link:hover {
+  color: var(--text-primary);
+}
+
+.mobile-cta {
+  margin-top: 1.5rem;
+  color: var(--accent-1);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 195, 255, 0.4);
+  padding: 0.75rem 2.5rem;
+  border-radius: 999px;
+  transition: all 0.3s;
+  font-family: 'Lexend Tera', sans-serif;
+}
+
+.mobile-cta:hover {
+  background: var(--accent-1);
+  color: #000;
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    left: 0;
+    width: 100%;
+    padding: 0.85rem 0;
+    /* Reduced padding */
+    background: rgba(248, 250, 252, 0.88);
+    /* Background always on for mobile */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .logo {
+    height: 46px;
+  }
+
+  .logo-img {
+    max-width: 130px;
+  }
+
+  .desktop-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  .logo-img {
+    max-width: 110px;
+  }
+
+  .btn-sm {
+    display: none;
+    /* Hide 'Get Started' button on very small screens to save space, it's in the mobile menu anyway */
+  }
+
+  .mobile-nav-link {
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+  }
+}

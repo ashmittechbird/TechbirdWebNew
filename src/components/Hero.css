@@ -1,0 +1,245 @@
+/* ── Hero Section ─────────────────────────────────────── */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* fallback */
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  background-color: var(--bg-color);
+}
+
+/* Spline — absolute full-cover background */
+.spline-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Canvas must be explicitly sized — the runtime reads clientWidth/clientHeight */
+.spline-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mobile-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glow-orb {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+  animation: float 8s ease-in-out infinite;
+}
+
+/* ── Overlay ──────────────────────────────────────────── */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 4.5rem;
+  pointer-events: none;
+}
+
+/* Left — title + tags + sub-paragraph */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 58%;
+  pointer-events: auto;
+  margin-bottom: 4rem;
+}
+
+/* Right — buttons only */
+.hero-right {
+  display: flex;
+  align-items: flex-end;
+  pointer-events: auto;
+  margin-bottom: 4rem;
+}
+
+/* ── Typography ───────────────────────────────────────── */
+.main-title {
+  font-family: 'Lexend Tera', sans-serif;
+  font-size: clamp(2.25rem, 8vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -2.5px;
+  color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+  .main-title {
+    font-size: clamp(1.75rem, 9vw, 2.2rem);
+    letter-spacing: -1.5px;
+    word-break: break-word;
+  }
+
+  .sub-paragraph {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .hero-overlay {
+    padding-top: 5rem; /* clear fixed navbar (~60px) */
+    padding-bottom: 2.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-left {
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-right {
+    margin-bottom: 0;
+  }
+
+  .tags-row {
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+}
+
+.tags-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: 'Lexend Tera', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tags-row .slash {
+  color: rgba(0, 0, 0, 0.18);
+}
+
+.sub-paragraph {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 460px;
+}
+
+@media (max-width: 640px) {
+  .tags-row {
+    gap: 0.5rem;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+}
+
+/* ── Buttons ──────────────────────────────────────────── */
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-hollow {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.btn-hollow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-hollow:hover {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+.icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent-1);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero-overlay {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 5rem;
+    padding-bottom: 3.5rem;
+  }
+  .hero-left {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .hero-right {
+    justify-content: center;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-overlay {
+    padding-bottom: 3rem;
+  }
+  .main-title {
+    letter-spacing: -2px;
+  }
+  .tags-row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
