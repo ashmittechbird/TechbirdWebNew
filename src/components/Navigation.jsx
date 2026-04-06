@@ -43,16 +43,31 @@ export default function Navigation() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  const scrollTo = (e, href) => {
+    e.preventDefault();
+    closeMenu();
+    if (href === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const target = document.querySelector(href);
+    if (target) {
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <header className={`navbar ${scrolled ? 'nav-scrolled' : ''}`} ref={navRef}>
         <div className="container nav-content">
-          <a href="#" className="logo" onClick={closeMenu}>
+          <a href="#" className="logo" onClick={e => scrollTo(e, '#')}>
             <img src={logo} alt="TechBird" className="logo-img" />
           </a>
           <nav className="desktop-links">
             {navLinks.map(link => (
-              <a key={link.label} href={link.href} className="nav-link">{link.label}</a>
+              <a key={link.label} href={link.href} className="nav-link" onClick={e => scrollTo(e, link.href)}>{link.label}</a>
             ))}
           </nav>
           <div className="nav-actions">
@@ -73,7 +88,7 @@ export default function Navigation() {
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
         <nav className="mobile-nav">
           {navLinks.map(link => (
-            <a key={link.label} href={link.href} className="mobile-nav-link" onClick={closeMenu}>
+            <a key={link.label} href={link.href} className="mobile-nav-link" onClick={e => scrollTo(e, link.href)}>
               {link.label}
             </a>
           ))}
