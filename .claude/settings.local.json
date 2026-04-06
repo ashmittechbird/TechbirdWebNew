@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(nano-banana-2)",
+      "Bash(infsh app run google/gemini-3-1-flash-image-preview --input '{:*)",
+      "Read(//c/Users/ashmi/.local/bin/**)",
+      "Read(//c/Users/ashmi/AppData/Local/Programs/**)",
+      "Bash(npx infsh:*)",
+      "Bash(npm run:*)",
+      "Bash(ngrok version:*)",
+      "Read(//c/Users/ashmi/.agents/skills/ui-ux-pro-max/**)",
+      "Bash(python scripts/search.py \"IT services technology company landing page professional mobile\" --domain ux -n 10)"
+    ]
+  }
+}
